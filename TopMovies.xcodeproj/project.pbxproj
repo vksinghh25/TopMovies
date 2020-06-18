@@ -16,6 +16,8 @@
 		3D31700924822CDC009A6952 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31700824822CDC009A6952 /* MovieViewModel.swift */; };
 		3D31700B24823E5E009A6952 /* MoviesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31700A24823E5E009A6952 /* MoviesClient.swift */; };
 		3D31700D248256BA009A6952 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31700C248256BA009A6952 /* TableCell.swift */; };
+		3D31700F2494CC5D009A6952 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31700E2494CC5D009A6952 /* DetailController.swift */; };
+		3D31701124961499009A6952 /* TextUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31701024961499009A6952 /* TextUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		3D31700824822CDC009A6952 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		3D31700A24823E5E009A6952 /* MoviesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesClient.swift; sourceTree = "<group>"; };
 		3D31700C248256BA009A6952 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		3D31700E2494CC5D009A6952 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		3D31701024961499009A6952 /* TextUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				3D31700824822CDC009A6952 /* MovieViewModel.swift */,
 				3D31700A24823E5E009A6952 /* MoviesClient.swift */,
 				3D31700C248256BA009A6952 /* TableCell.swift */,
+				3D31700E2494CC5D009A6952 /* DetailController.swift */,
+				3D31701024961499009A6952 /* TextUtility.swift */,
 			);
 			path = TopMovies;
 			sourceTree = "<group>";
@@ -148,9 +154,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D31700D248256BA009A6952 /* TableCell.swift in Sources */,
+				3D31700F2494CC5D009A6952 /* DetailController.swift in Sources */,
 				3D316FF92481A4A4009A6952 /* ViewController.swift in Sources */,
 				3D316FF52481A4A4009A6952 /* AppDelegate.swift in Sources */,
 				3D316FF72481A4A4009A6952 /* SceneDelegate.swift in Sources */,
+				3D31701124961499009A6952 /* TextUtility.swift in Sources */,
 				3D31700924822CDC009A6952 /* MovieViewModel.swift in Sources */,
 				3D31700B24823E5E009A6952 /* MoviesClient.swift in Sources */,
 			);

@@ -24,28 +24,37 @@ class TableCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
-        stackView.spacing = 10
+        stackView.spacing = 5
         return stackView
     }()
     
     let myImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .left
+        image.contentMode = .scaleAspectFit
         return image 
     }()
     
     var title: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.font = UIFont.boldSystemFont(ofSize: 20)
+        title.font = UIFont.boldSystemFont(ofSize: 28)
         return title
+    }()
+    
+    let purchasePrice: UILabel = {
+        let purchase = UILabel()
+        purchase.translatesAutoresizingMaskIntoConstraints = false
+        purchase.font = UIFont.systemFont(ofSize: 12)
+        purchase.textColor = UIColor.blue
+        return purchase
     }()
     
     let rentalPrice: UILabel = {
         let rental = UILabel()
         rental.translatesAutoresizingMaskIntoConstraints = false
-        rental.font = UIFont.systemFont(ofSize: 15)
+        rental.font = UIFont.systemFont(ofSize: 12)
+        rental.textColor = UIColor.blue
         return rental
     }()
     
@@ -65,18 +74,22 @@ class TableCell: UITableViewCell {
         
         contentView.addSubview(horizontalStackView)
         
+        contentView.layer.borderWidth = 0.2
+        contentView.layer.borderColor = UIColor.black.cgColor
+        
         horizontalStackView.addArrangedSubview(myImage)
         horizontalStackView.addArrangedSubview(verticalStackView)
         
         verticalStackView.addArrangedSubview(title)
         verticalStackView.addArrangedSubview(rentalPrice)
+        verticalStackView.addArrangedSubview(purchasePrice)
         
-        horizontalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        horizontalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
         horizontalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         horizontalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
         
-        myImage.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        myImage.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        myImage.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        myImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
         
         
     }

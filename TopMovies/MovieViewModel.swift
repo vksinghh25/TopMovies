@@ -21,10 +21,31 @@ class MovieViewModel: NSObject {
     }
     
     func getMovieTitleForIndexPath(indexPath: IndexPath) -> String {
-        guard let movies = movies, let title = movies[indexPath.item].value(forKeyPath: "title.label") as? String else {
+        guard let movies = movies, let title = movies[indexPath.item].value(forKeyPath: "im:name.label") as? String else {
             return ""
         }
         return title
+    }
+    
+    func getMovieSummary(indexPath: IndexPath) -> String {
+        guard let movies = movies, let summary = movies[indexPath.item].value(forKeyPath: "summary.label") as? String else {
+            return ""
+        }
+        return summary
+    }
+    
+    func getMovieCopyrightsInfo(indexPath: IndexPath) -> String {
+        guard let movies = movies, let copyrights = movies[indexPath.item].value(forKeyPath: "rights.label") as? String else {
+            return ""
+        }
+        return copyrights
+    }
+    
+    func getCategory(indexPath: IndexPath) -> String {
+        guard let movies = movies, let category = movies[indexPath.item].value(forKeyPath: "category.attributes.label") as? String else {
+            return ""
+        }
+        return category
     }
     
     func getPurchasePriceForMovieAt(indexPath: IndexPath) -> String {
@@ -34,10 +55,26 @@ class MovieViewModel: NSObject {
         return "Purchase for: \(price)"
     }
     
+    func getRentalPriceForMovieAt(indexPath: IndexPath) -> String {
+        guard let movies = movies, let price = movies[indexPath.item].value(forKeyPath: "im:rentalPrice.label") as? String else {
+            return ""
+        }
+        return "Rental for: \(price)"
+    }
+    
     func getImageURLForMovieAt(indexPath: IndexPath) -> String {
         guard let movies = movies,
             let images = movies[indexPath.item].value(forKeyPath: "im:image") as? [NSDictionary],
             let imageURL = images[1].value(forKeyPath: "label") as? String else {
+                return ""
+            }
+        return imageURL
+    }
+    
+    func getLargeImageURLForMovieAt(indexPath: IndexPath) -> String {
+        guard let movies = movies,
+            let images = movies[indexPath.item].value(forKeyPath: "im:image") as? [NSDictionary],
+            let imageURL = images[2].value(forKeyPath: "label") as? String else {
                 return ""
             }
         return imageURL
