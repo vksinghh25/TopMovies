@@ -10,6 +10,17 @@ import UIKit
 
 class TableCell: UITableViewCell {
     
+    var movieViewModel: MovieViewModel? {
+        didSet {
+            title.text = movieViewModel?.movieTitle
+            purchasePrice.text = movieViewModel?.purchasePrice
+            rentalPrice.text = movieViewModel?.rentalPrice
+            
+            guard let imageURL = movieViewModel?.imageURL else { return }
+            setImageUrl(imageURL: imageURL)
+        }
+    }
+    
     let horizontalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false

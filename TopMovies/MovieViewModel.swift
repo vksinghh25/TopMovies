@@ -1,89 +1,51 @@
 //
-//  MovieViewModel.swift
+//  SingleMovieViewModel.swift
 //  TopMovies
 //
-//  Created by Vipan K Singh on 30/05/20.
+//  Created by Vipan Singh on 19/06/20.
 //  Copyright © 2020 Vipan K Singh. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class MovieViewModel: NSObject {
+class MovieViewModel {
     
-    let moviesClient = MoviesClient()
-    var movies: [NSDictionary]?
+    var movieTitle: String?
+    var movieSummary: String?
+    var movieCopyrightsInfo: String?
+    var movieCategory: String?
+    var purchasePrice: String?
+    var rentalPrice: String?
+    var imageURL: String? 
     
-    func getNumberOfRowsInSection(section: Int) -> Int {
-        guard let movies = movies else {
-            return 0
-        }
-        return movies.count
-    }
-    
-    func getMovieTitleForIndexPath(indexPath: IndexPath) -> String {
-        guard let movies = movies, let title = movies[indexPath.item].value(forKeyPath: "im:name.label") as? String else {
-            return ""
-        }
-        return title
-    }
-    
-    func getMovieSummary(indexPath: IndexPath) -> String {
-        guard let movies = movies, let summary = movies[indexPath.item].value(forKeyPath: "summary.label") as? String else {
-            return ""
-        }
-        return summary
-    }
-    
-    func getMovieCopyrightsInfo(indexPath: IndexPath) -> String {
-        guard let movies = movies, let copyrights = movies[indexPath.item].value(forKeyPath: "rights.label") as? String else {
-            return ""
-        }
-        return copyrights
-    }
-    
-    func getCategory(indexPath: IndexPath) -> String {
-        guard let movies = movies, let category = movies[indexPath.item].value(forKeyPath: "category.attributes.label") as? String else {
-            return ""
-        }
-        return category
-    }
-    
-    func getPurchasePriceForMovieAt(indexPath: IndexPath) -> String {
-        guard let movies = movies, let price = movies[indexPath.item].value(forKeyPath: "im:price.label") as? String else {
-            return ""
-        }
-        return "Purchase for: \(price)"
-    }
-    
-    func getRentalPriceForMovieAt(indexPath: IndexPath) -> String {
-        guard let movies = movies, let price = movies[indexPath.item].value(forKeyPath: "im:rentalPrice.label") as? String else {
-            return ""
-        }
-        return "Rental for: \(price)"
-    }
-    
-    func getImageURLForMovieAt(indexPath: IndexPath) -> String {
-        guard let movies = movies,
-            let images = movies[indexPath.item].value(forKeyPath: "im:image") as? [NSDictionary],
-            let imageURL = images[1].value(forKeyPath: "label") as? String else {
-                return ""
+    var movie: NSDictionary? {
+        didSet {
+            guard let movieTitle = movie?.value(forKeyPath: "im:name.label") as? String else { return }
+            self.movieTitle = movieTitle
+        
+            guard let movieSummary = movie?.value(forKeyPath: "summary.label") as? String else { return }
+            self.movieSummary = movieSummary
+        
+            guard let movieCopyrightsInfo = movie?.value(forKeyPath: "rights.label") as? String else { return }
+            self.movieCopyrightsInfo = movieCopyrightsInfo
+        
+            guard let movieCategory = movie?.value(forKeyPath: "category.attributes.label") as? String else { return }
+            self.movieCategory = movieCategory
+        
+            guard let purchasePrice = movie?.value(forKeyPath: "im:price.label") as? String else { return }
+            if(purchasePrice.starts(with: "$")) {
+                self.purchasePrice = "Purchase for: \(purchasePrice)"
             }
-        return imageURL
-    }
-    
-    func getLargeImageURLForMovieAt(indexPath: IndexPath) -> String {
-        guard let movies = movies,
-            let images = movies[indexPath.item].value(forKeyPath: "im:image") as? [NSDictionary],
-            let imageURL = images[2].value(forKeyPath: "label") as? String else {
-                return ""
+        
+            guard let rentalPrice = movie?.value(forKeyPath: "im:rentalPrice.label") as? String else { return }
+            if(rentalPrice.starts(with: "$")) {
+                self.rentalPrice = "Rent for: \(rentalPrice)"
             }
-        return imageURL
-    }
-    
-    func fetchMovies(completion: @escaping () -> ()) {
-        moviesClient.fetchMovies { (movies) in
-            self.movies = movies
-            completion()
+            
+            guard let images = movie?.value(forKeyPath: "im:image") as? [NSDictionary], let imageURL = images[1].value(forKeyPath: "label") as? String else {
+                return
+            }
+            self.imageURL = imageURL
         }
     }
 }

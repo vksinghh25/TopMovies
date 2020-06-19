@@ -12,30 +12,22 @@ class DetailController: UIViewController {
     
     let textUtil = TextUtility()
     
-    var summary: String? {
+    var movieViewModel: MovieViewModel? {
         didSet {
-            let attributedSummaryText = textUtil.getAttributed(text: summary!, ofSize: 18)
+            let attributedSummaryText = textUtil.getAttributed(text: movieViewModel?.movieSummary ?? "", ofSize: 18)
             summaryLabel.attributedText = attributedSummaryText
-        }
-    }
-    
-    var category: String? {
-        didSet {
-            let attributedCategoryText = textUtil.getAttributed(text: "(\(category!))", ofSize: 22, andBold: true)
+            
+            let category = movieViewModel?.movieCategory ?? ""
+            print(category)
+            let attributedCategoryText = textUtil.getAttributed(text: "(\(category))", ofSize: 22, andBold: true)
             categoryLabel.attributedText = attributedCategoryText
-        }
-    }
-    
-    var copyrights: String? {
-        didSet {
-            let attributedSummaryText = textUtil.getAttributed(text: copyrights!, ofSize: 22, andBold: true)
-            copyrightsLabel.attributedText = attributedSummaryText
-        }
-    }
-    
-    var titleName: String? {
-        didSet {
-            let title = titleName!
+            
+            let copyrights = movieViewModel?.movieCopyrightsInfo ?? ""
+            print(copyrights)
+            let attributedCopyrightsText = textUtil.getAttributed(text: copyrights, ofSize: 22, andBold: true)
+            copyrightsLabel.attributedText = attributedCopyrightsText
+            
+            let title = movieViewModel?.movieTitle ?? ""
             let font = UIFont.systemFont(ofSize: 35)
             
             let shadow = NSShadow()
@@ -51,12 +43,9 @@ class DetailController: UIViewController {
             let attributedTitleName = NSAttributedString(string: title, attributes: attributes)
             
             titleLabel.attributedText = attributedTitleName
-        }
-    }
-    
-    var imageURL: String? {
-        didSet {
-            URLSession.shared.dataTask(with: NSURL(string: imageURL!)! as URL, completionHandler: { (data, response, error) -> Void in
+            
+            guard let imageURL = movieViewModel?.imageURL else { return }
+            URLSession.shared.dataTask(with: NSURL(string: imageURL)! as URL, completionHandler: { (data, response, error) -> Void in
                DispatchQueue.main.async {
                   if let data = data {
                     self.imageView.image = UIImage(data: data)

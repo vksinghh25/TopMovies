@@ -13,11 +13,11 @@
 		3D316FFC2481A4A4009A6952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D316FFA2481A4A4009A6952 /* Main.storyboard */; };
 		3D316FFE2481A4A7009A6952 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D316FFD2481A4A7009A6952 /* Assets.xcassets */; };
 		3D3170012481A4A7009A6952 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D316FFF2481A4A7009A6952 /* LaunchScreen.storyboard */; };
-		3D31700924822CDC009A6952 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31700824822CDC009A6952 /* MovieViewModel.swift */; };
 		3D31700B24823E5E009A6952 /* MoviesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31700A24823E5E009A6952 /* MoviesClient.swift */; };
 		3D31700D248256BA009A6952 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31700C248256BA009A6952 /* TableCell.swift */; };
 		3D31700F2494CC5D009A6952 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31700E2494CC5D009A6952 /* DetailController.swift */; };
 		3D31701124961499009A6952 /* TextUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31701024961499009A6952 /* TextUtility.swift */; };
+		FC42FFAB249C95F8001A6AB6 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42FFAA249C95F8001A6AB6 /* MovieViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +29,11 @@
 		3D316FFD2481A4A7009A6952 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D3170002481A4A7009A6952 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D3170022481A4A7009A6952 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D31700824822CDC009A6952 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		3D31700A24823E5E009A6952 /* MoviesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesClient.swift; sourceTree = "<group>"; };
 		3D31700C248256BA009A6952 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		3D31700E2494CC5D009A6952 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		3D31701024961499009A6952 /* TextUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtility.swift; sourceTree = "<group>"; };
+		FC42FFAA249C95F8001A6AB6 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,11 +73,11 @@
 				3D316FFD2481A4A7009A6952 /* Assets.xcassets */,
 				3D316FFF2481A4A7009A6952 /* LaunchScreen.storyboard */,
 				3D3170022481A4A7009A6952 /* Info.plist */,
-				3D31700824822CDC009A6952 /* MovieViewModel.swift */,
 				3D31700A24823E5E009A6952 /* MoviesClient.swift */,
 				3D31700C248256BA009A6952 /* TableCell.swift */,
 				3D31700E2494CC5D009A6952 /* DetailController.swift */,
 				3D31701024961499009A6952 /* TextUtility.swift */,
+				FC42FFAA249C95F8001A6AB6 /* MovieViewModel.swift */,
 			);
 			path = TopMovies;
 			sourceTree = "<group>";
@@ -158,8 +158,8 @@
 				3D316FF92481A4A4009A6952 /* ViewController.swift in Sources */,
 				3D316FF52481A4A4009A6952 /* AppDelegate.swift in Sources */,
 				3D316FF72481A4A4009A6952 /* SceneDelegate.swift in Sources */,
+				FC42FFAB249C95F8001A6AB6 /* MovieViewModel.swift in Sources */,
 				3D31701124961499009A6952 /* TextUtility.swift in Sources */,
-				3D31700924822CDC009A6952 /* MovieViewModel.swift in Sources */,
 				3D31700B24823E5E009A6952 /* MoviesClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

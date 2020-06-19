@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
 
+    var movies: [NSDictionary]?
+    let moviesClient = MoviesClient()
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,8 +35,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         return titleLabel
     }()
     
-    let movieViewModel = MovieViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,28 +53,35 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         tableView.delegate = self
         
-        movieViewModel.fetchMovies(completion: {
+        fetchMovies()
+    }
+    
+    private func fetchMovies() {
+        moviesClient.fetchMovies { (movies) in
+            self.movies = movies
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        })
-           
+        }
     }
 }
 
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieViewModel.getNumberOfRowsInSection(section: section)
+        return movies?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = DetailController()
-        detailController.titleName = movieViewModel.getMovieTitleForIndexPath(indexPath: indexPath)
-        detailController.imageURL = movieViewModel.getLargeImageURLForMovieAt(indexPath: indexPath)
-        detailController.summary = movieViewModel.getMovieSummary(indexPath: indexPath)
-        detailController.copyrights = movieViewModel.getMovieCopyrightsInfo(indexPath: indexPath)
-        detailController.category = movieViewModel.getCategory(indexPath: indexPath)
+        
+        let movieViewModel = MovieViewModel()
+        guard let movies = self.movies else {
+            return
+        }
+        
+        movieViewModel.movie = movies[indexPath.item]
+        detailController.singleMovieViewModel = movieViewModel
         
         navigationController?.navigationBar.topItem?.title = "All Movies"
         navigationController?.pushViewController(detailController, animated: true)
@@ -87,11 +95,13 @@ extension ViewController: UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for:
             indexPath) as! TableCell
         
-        cell.title.text = movieViewModel.getMovieTitleForIndexPath(indexPath: indexPath)
-        cell.purchasePrice.text = movieViewModel.getPurchasePriceForMovieAt(indexPath: indexPath)
-        cell.rentalPrice.text = movieViewModel.getRentalPriceForMovieAt(indexPath: indexPath)
-        cell.setImageUrl(imageURL: movieViewModel.getImageURLForMovieAt(indexPath: indexPath))
+        let movieViewModel = MovieViewModel()
+        guard let movies = self.movies else {
+            return cell 
+        }
+        movieViewModel.movie = movies[indexPath.item]
         
+        cell.singleMovieViewModel = movieViewModel
         cell.backgroundColor = indexPath.item % 2 == 0 ? .gray : .lightGray
         return cell
     }
