@@ -81,7 +81,7 @@ extension ViewController: UITableViewDelegate {
         }
         
         movieViewModel.movie = movies[indexPath.item]
-        detailController.singleMovieViewModel = movieViewModel
+        detailController.movieViewModel = movieViewModel
         
         navigationController?.navigationBar.topItem?.title = "All Movies"
         navigationController?.pushViewController(detailController, animated: true)
@@ -101,7 +101,7 @@ extension ViewController: UITableViewDelegate {
         }
         movieViewModel.movie = movies[indexPath.item]
         
-        cell.singleMovieViewModel = movieViewModel
+        cell.movieViewModel = movieViewModel
         cell.backgroundColor = indexPath.item % 2 == 0 ? .gray : .lightGray
         return cell
     }

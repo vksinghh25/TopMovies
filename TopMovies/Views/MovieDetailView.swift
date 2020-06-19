@@ -1,14 +1,14 @@
 //
-//  DetailController.swift
+//  MovieDetailView.swift
 //  TopMovies
 //
-//  Created by Vipan K Singh on 13/06/20.
+//  Created by Vipan Singh on 19/06/20.
 //  Copyright © 2020 Vipan K Singh. All rights reserved.
 //
 
 import UIKit
 
-class DetailController: UIViewController {
+class MovieDetailView: UIView {
     
     let textUtil = TextUtility()
     
@@ -18,12 +18,10 @@ class DetailController: UIViewController {
             summaryLabel.attributedText = attributedSummaryText
             
             let category = movieViewModel?.movieCategory ?? ""
-            print(category)
             let attributedCategoryText = textUtil.getAttributed(text: "(\(category))", ofSize: 22, andBold: true)
             categoryLabel.attributedText = attributedCategoryText
             
             let copyrights = movieViewModel?.movieCopyrightsInfo ?? ""
-            print(copyrights)
             let attributedCopyrightsText = textUtil.getAttributed(text: copyrights, ofSize: 22, andBold: true)
             copyrightsLabel.attributedText = attributedCopyrightsText
             
@@ -72,6 +70,7 @@ class DetailController: UIViewController {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 0
+        titleLabel.text = "Howdy"
         titleLabel.textAlignment = .center
         return titleLabel
     }()
@@ -80,6 +79,7 @@ class DetailController: UIViewController {
         let categoryLabel = UILabel()
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryLabel.numberOfLines = 0
+        categoryLabel.text = "Random"
         categoryLabel.textAlignment = .center
         return categoryLabel
     }()
@@ -107,14 +107,15 @@ class DetailController: UIViewController {
         return imageView
     }()
     
-    override func viewDidLoad() {
-        view.backgroundColor = .lightGray
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        view.addSubview(verticalScrollView)
-        verticalScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        verticalScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        verticalScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5).isActive = true
-        verticalScrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5).isActive = true
+        addSubview(verticalScrollView)
+        
+        verticalScrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
+        verticalScrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        verticalScrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 5).isActive = true
+        verticalScrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -5).isActive = true
         
         verticalScrollView.addSubview(verticalStackView)
         verticalStackView.addArrangedSubview(titleLabel)
@@ -133,5 +134,10 @@ class DetailController: UIViewController {
         verticalStackView.setCustomSpacing(15.0, after: categoryLabel)
         verticalStackView.setCustomSpacing(10.0, after: imageView)
         verticalStackView.setCustomSpacing(10.0, after: summaryLabel)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
