@@ -16,7 +16,7 @@ class MovieViewModel {
     var movieCategory: String?
     var purchasePrice: String?
     var rentalPrice: String?
-    var imageURL: String? 
+    var imageURL: String?
     
     var movie: NSDictionary? {
         didSet {
@@ -42,7 +42,7 @@ class MovieViewModel {
                 self.rentalPrice = "Rent for: \(rentalPrice)"
             }
             
-            guard let images = movie?.value(forKeyPath: "im:image") as? [NSDictionary], let imageURL = images[1].value(forKeyPath: "label") as? String else {
+            guard let images = movie?.value(forKeyPath: "im:image") as? [NSDictionary], let imageURL = images[2].value(forKeyPath: "label") as? String else {
                 return
             }
             self.imageURL = imageURL

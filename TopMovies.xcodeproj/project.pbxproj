@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0FB0DD24ABCB2B00FCEE92 /* TopMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0FB0DC24ABCB2B00FCEE92 /* TopMoviesTests.swift */; };
 		3D316FF52481A4A4009A6952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D316FF42481A4A4009A6952 /* AppDelegate.swift */; };
 		3D316FF72481A4A4009A6952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D316FF62481A4A4009A6952 /* SceneDelegate.swift */; };
 		3D316FF92481A4A4009A6952 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D316FF82481A4A4009A6952 /* ViewController.swift */; };
@@ -21,7 +22,20 @@
 		FC42FFAF249D2CD0001A6AB6 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42FFAE249D2CD0001A6AB6 /* MovieDetailView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3D0FB0DF24ABCB2B00FCEE92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D316FE92481A4A3009A6952 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D316FF02481A4A3009A6952;
+			remoteInfo = TopMovies;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		3D0FB0DA24ABCB2B00FCEE92 /* TopMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D0FB0DC24ABCB2B00FCEE92 /* TopMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMoviesTests.swift; sourceTree = "<group>"; };
+		3D0FB0DE24ABCB2B00FCEE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D316FF12481A4A4009A6952 /* TopMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D316FF42481A4A4009A6952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D316FF62481A4A4009A6952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +53,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3D0FB0D724ABCB2B00FCEE92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3D316FEE2481A4A3009A6952 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,10 +70,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D0FB0DB24ABCB2B00FCEE92 /* TopMoviesTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D0FB0DC24ABCB2B00FCEE92 /* TopMoviesTests.swift */,
+				3D0FB0DE24ABCB2B00FCEE92 /* Info.plist */,
+			);
+			path = TopMoviesTests;
+			sourceTree = "<group>";
+		};
 		3D316FE82481A4A3009A6952 = {
 			isa = PBXGroup;
 			children = (
 				3D316FF32481A4A4009A6952 /* TopMovies */,
+				3D0FB0DB24ABCB2B00FCEE92 /* TopMoviesTests */,
 				3D316FF22481A4A4009A6952 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				3D316FF12481A4A4009A6952 /* TopMovies.app */,
+				3D0FB0DA24ABCB2B00FCEE92 /* TopMoviesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +136,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3D0FB0D924ABCB2B00FCEE92 /* TopMoviesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D0FB0E124ABCB2B00FCEE92 /* Build configuration list for PBXNativeTarget "TopMoviesTests" */;
+			buildPhases = (
+				3D0FB0D624ABCB2B00FCEE92 /* Sources */,
+				3D0FB0D724ABCB2B00FCEE92 /* Frameworks */,
+				3D0FB0D824ABCB2B00FCEE92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D0FB0E024ABCB2B00FCEE92 /* PBXTargetDependency */,
+			);
+			name = TopMoviesTests;
+			productName = TopMoviesTests;
+			productReference = 3D0FB0DA24ABCB2B00FCEE92 /* TopMoviesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3D316FF02481A4A3009A6952 /* TopMovies */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D3170052481A4A7009A6952 /* Build configuration list for PBXNativeTarget "TopMovies" */;
@@ -131,6 +181,10 @@
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Vipan K Singh";
 				TargetAttributes = {
+					3D0FB0D924ABCB2B00FCEE92 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 3D316FF02481A4A3009A6952;
+					};
 					3D316FF02481A4A3009A6952 = {
 						CreatedOnToolsVersion = 11.4;
 					};
@@ -150,11 +204,19 @@
 			projectRoot = "";
 			targets = (
 				3D316FF02481A4A3009A6952 /* TopMovies */,
+				3D0FB0D924ABCB2B00FCEE92 /* TopMoviesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3D0FB0D824ABCB2B00FCEE92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3D316FEF2481A4A3009A6952 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -168,6 +230,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3D0FB0D624ABCB2B00FCEE92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D0FB0DD24ABCB2B00FCEE92 /* TopMoviesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3D316FED2481A4A3009A6952 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,6 +255,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D0FB0E024ABCB2B00FCEE92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D316FF02481A4A3009A6952 /* TopMovies */;
+			targetProxy = 3D0FB0DF24ABCB2B00FCEE92 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3D316FFA2481A4A4009A6952 /* Main.storyboard */ = {
@@ -206,6 +284,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3D0FB0E224ABCB2B00FCEE92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TopMoviesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vksinghh.TopMoviesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TopMovies.app/TopMovies";
+			};
+			name = Debug;
+		};
+		3D0FB0E324ABCB2B00FCEE92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TopMoviesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vksinghh.TopMoviesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TopMovies.app/TopMovies";
+			};
+			name = Release;
+		};
 		3D3170032481A4A7009A6952 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -357,6 +473,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3D0FB0E124ABCB2B00FCEE92 /* Build configuration list for PBXNativeTarget "TopMoviesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D0FB0E224ABCB2B00FCEE92 /* Debug */,
+				3D0FB0E324ABCB2B00FCEE92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3D316FEC2481A4A3009A6952 /* Build configuration list for PBXProject "TopMovies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
