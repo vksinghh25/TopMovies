@@ -75,13 +75,12 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = DetailController()
         
-        let movieViewModel = MovieViewModel()
+        let movieDetailModel = DetailModel()
         guard let movies = self.movies else {
             return
         }
-        
-        movieViewModel.movie = movies[indexPath.item]
-        detailController.movieViewModel = movieViewModel
+        movieDetailModel.movie = movies[indexPath.item]
+        detailController.movieDetailModel = movieDetailModel
         
         navigationController?.navigationBar.topItem?.title = "All Movies"
         navigationController?.pushViewController(detailController, animated: true)

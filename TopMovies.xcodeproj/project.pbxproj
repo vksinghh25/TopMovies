@@ -20,6 +20,8 @@
 		3D31701124961499009A6952 /* TextUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31701024961499009A6952 /* TextUtility.swift */; };
 		FC42FFAB249C95F8001A6AB6 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42FFAA249C95F8001A6AB6 /* MovieViewModel.swift */; };
 		FC42FFAF249D2CD0001A6AB6 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42FFAE249D2CD0001A6AB6 /* MovieDetailView.swift */; };
+		FC93DB2824ACE8E700E6B459 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93DB2724ACE8E700E6B459 /* DetailViewModel.swift */; };
+		FC93DB2B24ACE91B00E6B459 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93DB2A24ACE91B00E6B459 /* DetailModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		3D31701024961499009A6952 /* TextUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtility.swift; sourceTree = "<group>"; };
 		FC42FFAA249C95F8001A6AB6 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		FC42FFAE249D2CD0001A6AB6 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		FC93DB2724ACE8E700E6B459 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		FC93DB2A24ACE91B00E6B459 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 		3D316FF32481A4A4009A6952 /* TopMovies */ = {
 			isa = PBXGroup;
 			children = (
+				FC93DB2924ACE90F00E6B459 /* Models */,
+				FC93DB2624ACE8D000E6B459 /* ViewModels */,
 				FC42FFAD249D2BD8001A6AB6 /* Views */,
 				FC42FFAC249D2BC1001A6AB6 /* Controllers */,
 				3D316FF42481A4A4009A6952 /* AppDelegate.swift */,
@@ -131,6 +137,22 @@
 				FC42FFAE249D2CD0001A6AB6 /* MovieDetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FC93DB2624ACE8D000E6B459 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FC93DB2724ACE8E700E6B459 /* DetailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FC93DB2924ACE90F00E6B459 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC93DB2A24ACE91B00E6B459 /* DetailModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,11 +267,13 @@
 				3D31700D248256BA009A6952 /* TableCell.swift in Sources */,
 				3D31700F2494CC5D009A6952 /* DetailController.swift in Sources */,
 				3D316FF92481A4A4009A6952 /* ViewController.swift in Sources */,
+				FC93DB2824ACE8E700E6B459 /* DetailViewModel.swift in Sources */,
 				FC42FFAF249D2CD0001A6AB6 /* MovieDetailView.swift in Sources */,
 				3D316FF52481A4A4009A6952 /* AppDelegate.swift in Sources */,
 				3D316FF72481A4A4009A6952 /* SceneDelegate.swift in Sources */,
 				FC42FFAB249C95F8001A6AB6 /* MovieViewModel.swift in Sources */,
 				3D31701124961499009A6952 /* TextUtility.swift in Sources */,
+				FC93DB2B24ACE91B00E6B459 /* DetailModel.swift in Sources */,
 				3D31700B24823E5E009A6952 /* MoviesClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

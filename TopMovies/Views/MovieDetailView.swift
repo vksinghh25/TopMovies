@@ -12,47 +12,6 @@ class MovieDetailView: UIView {
     
     let textUtil = TextUtility()
     
-    var movieViewModel: MovieViewModel? {
-        didSet {
-            let attributedSummaryText = textUtil.getAttributed(text: movieViewModel?.movieSummary ?? "", ofSize: 18)
-            summaryLabel.attributedText = attributedSummaryText
-            
-            let category = movieViewModel?.movieCategory ?? ""
-            let attributedCategoryText = textUtil.getAttributed(text: "(\(category))", ofSize: 22, andBold: true)
-            categoryLabel.attributedText = attributedCategoryText
-            
-            let copyrights = movieViewModel?.movieCopyrightsInfo ?? ""
-            let attributedCopyrightsText = textUtil.getAttributed(text: copyrights, ofSize: 22, andBold: true)
-            copyrightsLabel.attributedText = attributedCopyrightsText
-            
-            let title = movieViewModel?.movieTitle ?? ""
-            let font = UIFont.systemFont(ofSize: 35)
-            
-            let shadow = NSShadow()
-            shadow.shadowColor = UIColor.white
-            shadow.shadowBlurRadius = 5
-            
-            let attributes: [NSAttributedString.Key: Any] = [
-                .font: font,
-                .foregroundColor: UIColor.black,
-                .shadow: shadow
-            ]
-            
-            let attributedTitleName = NSAttributedString(string: title, attributes: attributes)
-            
-            titleLabel.attributedText = attributedTitleName
-            
-            guard let imageURL = movieViewModel?.imageURL else { return }
-            URLSession.shared.dataTask(with: NSURL(string: imageURL)! as URL, completionHandler: { (data, response, error) -> Void in
-               DispatchQueue.main.async {
-                  if let data = data {
-                    self.imageView.image = UIImage(data: data)
-                  }
-               }
-            }).resume()
-        }
-    }
-    
     let verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
