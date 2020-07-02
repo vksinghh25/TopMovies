@@ -9,9 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
-
-    var movies: [NSDictionary]?
-    let moviesClient = MoviesClient()
+    
+    var movieListViewModel: MovieListViewModel?
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -53,34 +52,20 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         tableView.delegate = self
         
-        fetchMovies()
-    }
-    
-    private func fetchMovies() {
-        moviesClient.fetchMovies { (movies) in
-            self.movies = movies
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        movieListViewModel = MovieListViewModel(tableView: tableView)
+        movieListViewModel?.fetchMovies()
     }
 }
 
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies?.count ?? 0
+        return movieListViewModel?.movieListModel.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = DetailController()
-        
-        let movieDetailModel = DetailModel()
-        guard let movies = self.movies else {
-            return
-        }
-        movieDetailModel.movie = movies[indexPath.item]
-        detailController.movieDetailModel = movieDetailModel
+        detailController.movie = movieListViewModel?.movies?[indexPath.item]
         
         navigationController?.navigationBar.topItem?.title = "All Movies"
         navigationController?.pushViewController(detailController, animated: true)
@@ -94,13 +79,7 @@ extension ViewController: UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for:
             indexPath) as! TableCell
         
-        let movieViewModel = MovieViewModel()
-        guard let movies = self.movies else {
-            return cell 
-        }
-        movieViewModel.movie = movies[indexPath.item]
-        
-        cell.movieViewModel = movieViewModel
+        movieListViewModel?.configure(cell, index: indexPath.item)
         cell.backgroundColor = indexPath.item % 2 == 0 ? .gray : .lightGray
         return cell
     }
