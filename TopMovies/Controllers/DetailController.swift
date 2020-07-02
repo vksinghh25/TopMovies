@@ -11,13 +11,12 @@ import UIKit
 class DetailController: UIViewController {
 
     let movieDetailView = MovieDetailView()
-    
-    var movieViewModel: MovieDetailViewModel?
+    var movieDetailViewModel: MovieDetailViewModel?
     
     var movie: NSDictionary? {
         didSet {
-            movieViewModel = MovieDetailViewModel(model: MovieDetailModel(movie: movie!))
-            movieViewModel?.configure(movieDetailView)
+            movieDetailViewModel = MovieDetailViewModel(model: MovieDetailModel(movie: movie!))
+            movieDetailViewModel?.configure(movieDetailView)
         }
     }
     

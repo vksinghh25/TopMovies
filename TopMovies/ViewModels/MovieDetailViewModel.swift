@@ -11,7 +11,6 @@ import UIKit
 class MovieDetailViewModel {
     
     var detailModel: MovieDetailModel?
-    
     let textUtil = TextUtility()
     
     init(model: MovieDetailModel? = nil) {
