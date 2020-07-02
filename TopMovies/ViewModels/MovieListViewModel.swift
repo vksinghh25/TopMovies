@@ -12,20 +12,19 @@ class MovieListViewModel {
     
     let moviesClient = MoviesClient()
     var movies: [NSDictionary]?
-    var movieListModel = [MovieListModel]()
+    var movieListModel = [MovieModel]()
     let tableView: UITableView?
     
     init(tableView: UITableView) {
         self.tableView = tableView
     }
     
-    public func fetchMovies() {
+    public func fetchData() {
         moviesClient.fetchMovies { (movies) in
             self.movies = movies
             movies?.forEach { (movie) in
-                let movieListModel = MovieListModel()
-                movieListModel.movie = movie
-                self.movieListModel.append(movieListModel)
+                let movieModel = MovieModel(movie: movie)
+                self.movieListModel.append(movieModel)
             }
             
             DispatchQueue.main.async {

@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.delegate = self
         
         movieListViewModel = MovieListViewModel(tableView: tableView)
-        movieListViewModel?.fetchMovies()
+        movieListViewModel?.fetchData()
     }
 }
 
