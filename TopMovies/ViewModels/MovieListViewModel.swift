@@ -11,9 +11,10 @@ import UIKit
 class MovieListViewModel {
     
     let moviesClient = MoviesClient()
-    var movies: [NSDictionary]?
     var movieListModel = [MovieModel]()
+    
     let tableView: UITableView?
+    var movies: [NSDictionary]?
     
     init(tableView: UITableView) {
         self.tableView = tableView
@@ -22,6 +23,7 @@ class MovieListViewModel {
     public func fetchData() {
         moviesClient.fetchMovies { (movies) in
             self.movies = movies
+            
             movies?.forEach { (movie) in
                 let movieModel = MovieModel(movie: movie)
                 self.movieListModel.append(movieModel)
@@ -34,11 +36,11 @@ class MovieListViewModel {
     }
     
     public func configure(_ cellView: TableCell, index: Int) {
-        cellView.title.text = movieListModel[index].title
+        cellView.title.text = movieListModel[index].movieTitle
         cellView.purchasePrice.text = movieListModel[index].purchasePrice
         cellView.rentalPrice.text = movieListModel[index].rentalPrice
         
-        guard let imageURL = movieListModel[index].imageURL else { return }
+        guard let imageURL = movieListModel[index].movieImageURL else { return }
         URLSession.shared.dataTask(with: NSURL(string: imageURL)! as URL, completionHandler: {
            (data, response, error) -> Void in
            DispatchQueue.main.async {

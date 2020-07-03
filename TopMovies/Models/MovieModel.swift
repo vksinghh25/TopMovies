@@ -9,14 +9,14 @@
 import Foundation
 
 public class MovieModel {
-    var title: String?
+    var movieTitle: String?
     var purchasePrice: String?
     var rentalPrice: String?
-    var imageURL: String?
+    var movieImageURL: String?
     
     init(movie: NSDictionary) {
         guard let movieTitle = movie.value(forKeyPath: "im:name.label") as? String else { return }
-        self.title = movieTitle
+        self.movieTitle = movieTitle
         
         guard let purchasePrice = movie.value(forKeyPath: "im:price.label") as? String else {
             self.purchasePrice = "Not available for Purchase"
@@ -37,6 +37,6 @@ public class MovieModel {
         guard let images = movie.value(forKeyPath: "im:image") as? [NSDictionary], let imageURL = images[2].value(forKeyPath: "label") as? String else {
                 return
         }
-        self.imageURL = imageURL
+        self.movieImageURL = imageURL
     }
 }
