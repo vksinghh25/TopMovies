@@ -25,7 +25,9 @@ class MovieDetailViewModel {
         detailView.summaryLabel.attributedText = attributedSummaryText
         
         let category = detailModel?.category ?? ""
-        let attributedCategoryText = textUtil.getAttributed(text: "(\(category))", ofSize: 20, andBold: true)
+        let text = category == "" ? "" : "(\(category))"
+        
+        let attributedCategoryText = textUtil.getAttributed(text: text, ofSize: 20, andBold: true)
         detailView.categoryLabel.attributedText = attributedCategoryText
         
         let copyrights = detailModel?.copyrights ?? ""
