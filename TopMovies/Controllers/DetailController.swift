@@ -15,7 +15,7 @@ class DetailController: UIViewController {
     
     var movie: NSDictionary? {
         didSet {
-            movieDetailViewModel = MovieDetailViewModel(model: MovieDetailModel(movie: movie!))
+            movieDetailViewModel = MovieDetailViewModel(movie: movie!)
             movieDetailViewModel?.configure(movieDetailView)
         }
     }
@@ -23,8 +23,8 @@ class DetailController: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = .lightGray
         
-        movieDetailView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(movieDetailView)
+        movieDetailView.translatesAutoresizingMaskIntoConstraints = false
         
         movieDetailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         movieDetailView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true

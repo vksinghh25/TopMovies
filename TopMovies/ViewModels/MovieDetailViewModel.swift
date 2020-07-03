@@ -13,14 +13,15 @@ class MovieDetailViewModel {
     var detailModel: MovieDetailModel?
     let textUtil = TextUtility()
     
-    init(model: MovieDetailModel? = nil) {
-        if let detailModel = model {
-            self.detailModel = detailModel
-        }
+    var movie: NSDictionary?
+    
+    init(movie: NSDictionary) {
+        self.detailModel = MovieDetailModel(movie: movie)
     }
     
-    public func configure(_ detailView: MovieDetailView) {        
-        let attributedSummaryText = textUtil.getAttributed(text: detailModel?.summary ?? "", ofSize: 18)
+    public func configure(_ detailView: MovieDetailView) {
+        let summary = detailModel?.summary ?? ""
+        let attributedSummaryText = textUtil.getAttributed(text: summary, ofSize: 18)
         detailView.summaryLabel.attributedText = attributedSummaryText
         
         let category = detailModel?.category ?? ""
