@@ -90,8 +90,8 @@ class MovieDetailView: UIView {
         verticalStackView.centerXAnchor.constraint(equalTo: verticalScrollView.centerXAnchor).isActive = true
         
         verticalStackView.setCustomSpacing(0.0, after: titleLabel)
-        verticalStackView.setCustomSpacing(15.0, after: categoryLabel)
-        verticalStackView.setCustomSpacing(10.0, after: imageView)
+        verticalStackView.setCustomSpacing(20.0, after: categoryLabel)
+        verticalStackView.setCustomSpacing(20.0, after: imageView)
         verticalStackView.setCustomSpacing(10.0, after: summaryLabel)
         
     }
