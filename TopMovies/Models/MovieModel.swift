@@ -15,23 +15,20 @@ public class MovieModel {
     var movieImageURL: String?
     
     init(movie: NSDictionary) {
-        guard let movieTitle = movie.value(forKeyPath: "im:name.label") as? String else { return }
-        self.movieTitle = movieTitle
+        self.movieTitle = movie.value(forKeyPath: "im:name.label") as? String ?? ""
         
-        guard let purchasePrice = movie.value(forKeyPath: "im:price.label") as? String else {
-            self.purchasePrice = "Not available for Purchase"
-            return
-        }
+        let purchasePrice = movie.value(forKeyPath: "im:price.label") as? String ?? "Not available for purchase"
         if(purchasePrice.starts(with: "$")) {
             self.purchasePrice = "Purchase for: \(purchasePrice)"
+        } else {
+            self.purchasePrice = purchasePrice
         }
         
-        guard let rentalPrice = movie.value(forKeyPath: "im:rentalPrice.label") as? String else {
-            self.rentalPrice = "Not available for Rent"
-            return
-        }
+        let rentalPrice = movie.value(forKeyPath: "im:rentalPrice.label") as? String ?? "Not available for rent"
         if(rentalPrice.starts(with: "$")) {
             self.rentalPrice = "Rent for: \(rentalPrice)"
+        } else {
+            self.rentalPrice = rentalPrice
         }
         
         guard let images = movie.value(forKeyPath: "im:image") as? [NSDictionary], let imageURL = images[2].value(forKeyPath: "label") as? String else {

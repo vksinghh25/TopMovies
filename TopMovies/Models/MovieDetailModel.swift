@@ -16,17 +16,16 @@ public class MovieDetailModel {
     var imageURL: String?
     
     init(movie: NSDictionary) {
-        guard let movieTitle = movie.value(forKeyPath: "im:name.label") as? String else { return }
+        let movieTitle = movie.value(forKeyPath: "im:name.label") as? String ?? "Title Not Found"
         self.title = movieTitle
         
-        guard let category = movie.value(forKeyPath: "category.attributes.label") as? String
-            else { return  }
+        let category = movie.value(forKeyPath: "category.attributes.label") as? String ?? ""
         self.category = category
         
-        guard let movieSummary = movie.value(forKeyPath: "summary.label") as? String else { return }
+        let movieSummary = movie.value(forKeyPath: "summary.label") as? String ?? ""
         self.summary = movieSummary
         
-        guard let movieCopyrightsInfo = movie.value(forKeyPath: "rights.label") as? String else { return }
+        let movieCopyrightsInfo = movie.value(forKeyPath: "rights.label") as? String ?? ""
             self.copyrights = movieCopyrightsInfo
             
         guard let images = movie.value(forKeyPath: "im:image") as? [NSDictionary], let imageURL = images[2].value(forKeyPath: "label") as? String else {
